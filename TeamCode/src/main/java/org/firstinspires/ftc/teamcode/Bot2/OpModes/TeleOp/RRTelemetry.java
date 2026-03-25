@@ -20,7 +20,7 @@ public class RRTelemetry extends LinearOpMode {
 
         waitForStart();
 
-        while(opModeIsActive()) {
+        while (opModeIsActive()) {
             telemetry.addLine(String.format("par0: %s", par0.getPositionAndVelocity().position));
             telemetry.addLine(String.format("par1: %s", par1.getPositionAndVelocity().position));
             telemetry.addLine(String.format("perp: %s", perp.getPositionAndVelocity().position));
