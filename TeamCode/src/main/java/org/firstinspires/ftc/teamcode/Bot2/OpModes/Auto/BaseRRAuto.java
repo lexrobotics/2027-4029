@@ -46,11 +46,11 @@ public class BaseRRAuto extends LinearOpMode{
                 .turn(Math.toRadians(-45)); // Needs to be 0.0 not just 0 to work I think
 
         Actions.runBlocking(
-                traj1.build()
-//                new SequentialAction(
-//                        traj1.build(),
-//                        traj2.build()
-//                )
+                //traj1.build()
+                new SequentialAction(
+                        traj1.build(),
+                        traj2.build()
+                )
         );
         drive.updatePoseEstimate();
 
