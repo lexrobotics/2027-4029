@@ -16,17 +16,17 @@ public class MeepMeepTesting {
                 .build();
 
         myBot.runAction(myBot.getDrive().actionBuilder(new Pose2d(0, -48, 0))
-                .splineTo(new Vector2d(30, 0), Math.PI / 2)
-                .splineTo(new Vector2d(0, 48), Math.PI)
+                .lineToX(20)
+                .turn(Math.toRadians(90))
+                .lineToY(20)
+                .turn(Math.toRadians(90))
+                .lineToX(0)
+                .turn(Math.toRadians(90))
+                .lineToY(0)
+                .turn(Math.toRadians(90))
                 .build());
-//                .lineToX(20)
-//                .turn(Math.toRadians(90))
-//                .lineToY(20)
-//                .turn(Math.toRadians(90))
-//                .lineToX(0)
-//                .turn(Math.toRadians(90))
-//                .lineToY(0)
-//                .turn(Math.toRadians(90))
+//                .splineTo(new Vector2d(30, 0), Math.PI / 2)
+//                .splineTo(new Vector2d(0, 48), Math.PI)
 //                .build());
 
         meepMeep.setBackground(MeepMeep.Background.FIELD_DECODE_JUICE_BLACK)
