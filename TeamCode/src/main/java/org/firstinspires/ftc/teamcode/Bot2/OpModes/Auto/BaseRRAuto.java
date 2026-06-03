@@ -15,6 +15,7 @@ import org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mTransfer;
 import org.firstinspires.ftc.teamcode.Bot2.Setup;
 import org.firstinspires.ftc.teamcode.roadrunner.MecanumDrive;
 
+// Used for testing the new version of RoadRunner
 @Autonomous(group = "1")
 public class BaseRRAuto extends LinearOpMode{
     private Bot bot;
