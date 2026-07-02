@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.Bot2.OpModes.Auto;
 
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.SequentialAction;
-import com.acmerobotics.roadrunner.Trajectory;
 import com.acmerobotics.roadrunner.TrajectoryActionBuilder;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
@@ -17,9 +16,7 @@ import org.firstinspires.ftc.teamcode.roadrunner.MecanumDrive;
 
 // Used for testing the new version of RoadRunner
 @Autonomous(group = "1")
-public class BaseRRAuto extends LinearOpMode{
-    // TO DO: Figure out how to use the IMU (?) to make the drin=ving be based on the presepective of the driver not the bot
-    // Also figure out how the bot knows what is front, what is back, etc.
+public class SequentialRRAuto extends LinearOpMode{
     private Bot bot;
     private ElapsedTime timer;
     private Setup setup;
@@ -27,7 +24,7 @@ public class BaseRRAuto extends LinearOpMode{
 
     @Override
     public void runOpMode() throws InterruptedException {
-        // Do we need to set the zero power behavior of the motor for auto
+        // Do we need to set the zero power behavior of the motor for auto?
         setup = new Setup(hardwareMap, telemetry, true, this, Setup.OpModeType.AUTO, Setup.Team.Q3);
         bot = new Bot(Setup.mechStates, Setup.sensorStates);
 
@@ -42,17 +39,29 @@ public class BaseRRAuto extends LinearOpMode{
         if (isStopRequested()) return;
 
         TrajectoryActionBuilder traj1 = drive.actionBuilder(startPose)
-                .lineToX(20)
-                .turn(Math.toRadians(90))
-                .lineToY(20)
-                .turn(Math.toRadians(90))
-                .lineToX(0)
-                .turn(Math.toRadians(90))
-                .lineToY(0)
-                .turn(Math.toRadians(90));
+                .strafeTo(new Vector2d(-10, -10));
+//                .turn(Math.toRadians(45)); //(new Pose2d(-96, -72, Math.toRadians(0)))
+
+        TrajectoryActionBuilder traj2 = drive.actionBuilder(drive.localizer.getPose())
+                .strafeTo(new Vector2d(10, 10))
+                .turn(Math.toRadians(-45)); // Needs to be 0.0 not just 0 to work I think
 
         Actions.runBlocking(
-                traj1.build()
+                //traj1.build()
+                new SequentialAction(
+                        traj1.build(),
+                        traj2.build()
+                )
+        );
+        drive.updatePoseEstimate();
+
+        timer.reset();
+        while (opModeIsActive() && timer.milliseconds() < 5000) {
+            sleep(5);
+        }
+
+        Actions.runBlocking(
+               traj2.build()
         );
         drive.updatePoseEstimate();
     }

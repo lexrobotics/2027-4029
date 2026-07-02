@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Bot2.OpModes.TeleOp;
+package org.firstinspires.ftc.teamcode.Bot2.OpModes.TeleOp.Old;
 
 import static org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mTransfer.INTAKE1;
 import static org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mTransfer.INTAKE2;
@@ -16,7 +16,6 @@ import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Bot2.Bot;
-import org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mTransfer;
 import org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mGate;
 import org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mIntake;
 import org.firstinspires.ftc.teamcode.Bot2.Mechanisms.mOuttake;
