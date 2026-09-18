@@ -29,7 +29,7 @@ public class Limelight extends LinearOpMode {
         lime.setPollRateHz(30);
         lime.start();
 
-        lime.pipelineSwitch(0); // blue pipeline
+        lime.pipelineSwitch(1); // blue pipeline
 
         waitForStart();
 
