@@ -14,10 +14,16 @@ public class Limelight extends LinearOpMode {
     private Setup setup;
     private Bot bot;
     private Limelight3A lime;
+
+    private int pipe = 0;
     //pipe 0 = blue
     //pipe 1 = yellow
     //pipe 2 = red
     //pipe 3 = aprilTags
+
+//    public Limelight(int pipeline){
+//        pipe = pipeline;
+//    }
 
     @Override
     public void runOpMode() {
@@ -29,7 +35,7 @@ public class Limelight extends LinearOpMode {
         lime.setPollRateHz(30);
         lime.start();
 
-        lime.pipelineSwitch(1); // blue pipeline
+        lime.pipelineSwitch(pipe); // blue pipeline
 
         waitForStart();
 
@@ -40,9 +46,11 @@ public class Limelight extends LinearOpMode {
 
             double tx = test.getTx();
             double ty = test.getTy();
+            double size = test.getTa();
 
             telemetry.addData("Tx", tx);
-            telemetry.addData("ty", ty);
+            telemetry.addData("Ty", ty);
+            telemetry.addData("Size", size);
         } else {
             telemetry.addData("limelight", "no target");
         }
