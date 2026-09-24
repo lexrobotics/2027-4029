@@ -11,7 +11,7 @@ public class Training1 extends LinearOpMode {
     @Override
     public void runOpMode(){
         waitForStart();
-        telemetry.addData("Hello, Team!", 69420);
+        telemetry.addData("Hello, Team!");
 
     }
 
