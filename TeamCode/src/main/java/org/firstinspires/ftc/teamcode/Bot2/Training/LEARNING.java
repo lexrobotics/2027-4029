@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import org.firstinspires.ftc.teamcode.Bot2.Bot;
 import org.firstinspires.ftc.teamcode.Bot2.Setup;
 
+@TeleOp
 public class LEARNING extends LinearOpMode{
     private Bot bot;
     private Setup setup;
@@ -16,8 +17,8 @@ public class LEARNING extends LinearOpMode{
 
     @Override
     public void runOpMode() throws InterruptedException {
-        setup = new Setup(hardwareMap, telemetry, true, this, Setup.OpModeType.AUTO, Setup.Team.Q1);
-        bot = new Bot(Setup.mechStates, Setup.sensorStates);
+        //setup = new Setup(hardwareMap, telemetry, true, this, Setup.OpModeType.TELEOP, Setup.Team.Q1);
+        //bot = new Bot(Setup.mechStates, Setup.sensorStates);
 
         servoTest = hardwareMap.get(Servo.class, "servoTest");
 
