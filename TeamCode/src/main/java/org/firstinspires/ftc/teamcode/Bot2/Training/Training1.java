@@ -13,8 +13,10 @@ public class Training1 extends LinearOpMode {
     private Setup setup;
     private Bot bot;
 
+
     @Override
     public void runOpMode(){
+        bot.init();
         setup = new Setup(hardwareMap, telemetry, true, this, Setup.OpModeType.AUTO, Setup.Team.Q1);
         bot = new Bot(Setup.mechStates, Setup.sensorStates);
 
@@ -23,5 +25,7 @@ public class Training1 extends LinearOpMode {
         telemetry.addData("Hello, Team!", "YES");
 
     }
+
+
 
 }
