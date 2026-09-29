@@ -16,9 +16,9 @@ public class Training1 extends LinearOpMode {
 
     @Override
     public void runOpMode(){
-        bot.init();
         setup = new Setup(hardwareMap, telemetry, true, this, Setup.OpModeType.AUTO, Setup.Team.Q1);
         bot = new Bot(Setup.mechStates, Setup.sensorStates);
+        bot.init();
 
 
         waitForStart();
