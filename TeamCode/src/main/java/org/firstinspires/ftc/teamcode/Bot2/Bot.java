@@ -1,9 +1,10 @@
+// This class belongs to the team's Bot2 package. That's where it lives and continues to survive...
 package org.firstinspires.ftc.teamcode.Bot2;
 
 import android.util.Log;
 
-import com.acmerobotics.roadrunner.Pose2d;
-import com.qualcomm.robotcore.hardware.DcMotor;
+import com.acmerobotics.roadrunner.Pose2d; //Pose2d is from Road Runner and defines the bot's (x,y,theta).
+import com.qualcomm.robotcore.hardware.DcMotor;// DcMotor is from FTC SDK, used for, obviously, motor.
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.Bot2.Drivetrain.Drivetrain;
@@ -21,8 +22,10 @@ import org.firstinspires.ftc.teamcode.Bot2.Sensors.Vision.Camera;
 
 import java.util.HashMap;
 
-public class Bot implements Robot {
-    public Drivetrain drivetrain;
+public class Bot implements Robot {  
+    // declares that Bot follows the requirements specified by the Robot interface. 
+    // major susbsystems and robot mechanisms managed by this bot.
+    public Drivetrain drivetrain; //declare the variable
     public ServoMechanism transfer, pusher, gate;
     public MotorMechanism intake, outtakeLeft, outtakeRight;
     public SensorColorDistance CDSensor;
@@ -30,18 +33,17 @@ public class Bot implements Robot {
     public SensorSwitch slidesSwitch, intakeSlidesSwitch;
 
     public Bot(HashMap<String, HardwareStates> hardwareStates, HashMap<String, HardwareStates> sensorStates){
-        /*
-        Bot constructor creates all mechanisms in Mechanism objects if they are enabled
-         */
+        //HashMap is key-value pair
+        //Initiallizes the robot's mechanisms and sensors based on which components and enabled and in HardStates sensorStates.
         //sensors = new Sensors1(3,3,0,0,true);
-
         //telemetry.addLine("robot");
 
         if(hardwareStates.get("drivetrain").isEnabled){
-            drivetrain = new Drivetrain();
+            //asking for the value of the key "draintrain".
+            drivetrain = new Drivetrain(); // creating the actual object
         } else {
-            Log.d("HAI", "DRIVETRAIN NULL");
-            drivetrain = null;
+            Log.d("HAI", "DRIVETRAIN NULL");//debugging level msg to Android's log. "HAI" as tag and "DRIVETRAIN NULL" as message. 
+            drivetrain = null; //To avoid errors, drivetrain will be set to point to NO object. 
         }
 
         if(hardwareStates.get("Transfer").isEnabled){
