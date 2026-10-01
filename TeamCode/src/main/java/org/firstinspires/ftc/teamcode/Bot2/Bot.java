@@ -44,6 +44,8 @@ public class Bot implements Robot {
         } else {
             Log.d("HAI", "DRIVETRAIN NULL");// debugging level msg to Android's log. "HAI" as tag and "DRIVETRAIN NULL" as message. 
             drivetrain = null; // To avoid errors, drivetrain will be set to point to NO object. 
+            
+        /* potentially, drivetrain could be changed in order to maintain consistence. */
         }
 
         if(hardwareStates.get("Transfer").isEnabled){
