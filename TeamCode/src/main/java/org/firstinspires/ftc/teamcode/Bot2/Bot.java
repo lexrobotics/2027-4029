@@ -33,17 +33,17 @@ public class Bot implements Robot {
     public SensorSwitch slidesSwitch, intakeSlidesSwitch;
 
     public Bot(HashMap<String, HardwareStates> hardwareStates, HashMap<String, HardwareStates> sensorStates){
-        //HashMap is key-value pair
-        //Initiallizes the robot's mechanisms and sensors based on which components and enabled and in HardStates sensorStates.
+        // HashMap is key-value pair
+        // Initiallizes the robot's mechanisms and sensors based on which components and enabled and in HardStates sensorStates.
         //sensors = new Sensors1(3,3,0,0,true);
         //telemetry.addLine("robot");
 
         if(hardwareStates.get("drivetrain").isEnabled){
-            //asking for the value of the key "draintrain".
+            // asking for the value of the key "draintrain".
             drivetrain = new Drivetrain(); // creating the actual object
         } else {
-            Log.d("HAI", "DRIVETRAIN NULL");//debugging level msg to Android's log. "HAI" as tag and "DRIVETRAIN NULL" as message. 
-            drivetrain = null; //To avoid errors, drivetrain will be set to point to NO object. 
+            Log.d("HAI", "DRIVETRAIN NULL");// debugging level msg to Android's log. "HAI" as tag and "DRIVETRAIN NULL" as message. 
+            drivetrain = null; // To avoid errors, drivetrain will be set to point to NO object. 
         }
 
         if(hardwareStates.get("Transfer").isEnabled){
